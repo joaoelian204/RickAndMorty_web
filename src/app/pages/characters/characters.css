@@ -1,0 +1,233 @@
+.characters-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Loading State */
+.loading {
+    text-align: center;
+    padding: 80px 20px;
+    color: #666;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* Error State */
+.error {
+    text-align: center;
+    padding: 50px 20px;
+    color: #f44336;
+    background-color: #ffebee;
+    border-radius: 12px;
+    margin: 20px;
+    border: 1px solid #ffcdd2;
+}
+
+.error p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* Characters Grid */
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+/* Character Card */
+.character-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.character-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+.character-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Character Image */
+.character-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.character-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.character-card:hover .character-img {
+    transform: scale(1.05);
+}
+
+.character-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.character-card:hover .character-overlay {
+    transform: translateY(0);
+}
+
+.character-name {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.character-species {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Character Info */
+.character-info {
+    padding: 20px;
+}
+
+.character-title {
+    margin: 0 0 15px 0;
+    font-size: 1.3rem;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.character-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Status Badge */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.status-alive {
+    background-color: #4caf50;
+    color: white;
+}
+
+.status-dead {
+    background-color: #f44336;
+    color: white;
+}
+
+.status-unknown {
+    background-color: #9e9e9e;
+    color: white;
+}
+
+.species-text {
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: #666;
+}
+
+.empty-state h2 {
+    margin: 0 0 15px 0;
+    color: #2c3e50;
+    font-size: 1.8rem;
+}
+
+.empty-state p {
+    margin: 0;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .characters-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 15px 0;
+    }
+    
+    .character-image {
+        height: 200px;
+    }
+    
+    .character-info {
+        padding: 15px;
+    }
+    
+    .character-title {
+        font-size: 1.1rem;
+    }
+    
+    .character-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .characters-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .characters-container {
+        padding: 15px;
+    }
+}

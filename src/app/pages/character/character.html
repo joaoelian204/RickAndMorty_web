@@ -1,0 +1,63 @@
+<div class="character-container">
+    <div class="character-header">
+        <h1>{{character.name}}</h1>
+        <span class="status-badge" [class]="'status-' + character.status.toLowerCase()">
+            {{character.status}}
+        </span>
+    </div>
+
+    <div class="character-content">
+        <div class="character-image">
+            <img [src]="character.image" alt="Imagen del personaje" class="character-img" [title]="character.name || 'Personaje'">
+        </div>
+
+        <div class="character-info">
+            <div class="info-section">
+                <h3>Información del Personaje</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">Especie:</span>
+                        <span class="value">{{character.species}}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Género:</span>
+                        <span class="value">{{character.gender}}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Tipo:</span>
+                        <span class="value">{{character.type || 'Desconocido'}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>Ubicación</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">Origen:</span>
+                        <span class="value">{{character.origin.name}}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Ubicación actual:</span>
+                        <span class="value">{{character.location.name}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>Episodios</h3>
+                <div class="episodes-info">
+                    <span class="episodes-count">Aparece en {{character.episode.length}} episodios</span>
+                    <div class="episodes-list" *ngIf="character.episode.length > 0">
+                        <span class="episode-item" *ngFor="let episode of character.episode.slice(0, 5); let i = index">
+                            Episodio {{i + 1}}
+                        </span>
+                        <span class="more-episodes" *ngIf="character.episode.length > 5">
+                            +{{character.episode.length - 5}} más
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

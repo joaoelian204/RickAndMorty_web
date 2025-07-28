@@ -1,0 +1,42 @@
+<div class="characters-container">
+    @if (loading) {
+        <div class="loading">
+            <div class="loading-spinner"></div>
+            <p>Cargando personajes...</p>
+        </div>
+    } @else if (error) {
+        <div class="error">
+            <p>{{error}}</p>
+        </div>
+    } @else if (characters.results.length > 0) {
+        <div class="characters-grid">
+            @for (item of characters.results; track $index) {
+                <div class="character-card">
+                    <a [routerLink]="['/characters', item.id]" class="character-link">
+                        <div class="character-image">
+                            <img [src]="item.image" alt="Imagen del personaje" [title]="item.name" class="character-img">
+                            <div class="character-overlay">
+                                <span class="character-name">{{item.name}}</span>
+                                <span class="character-species">{{item.species}}</span>
+                            </div>
+                        </div>
+                        <div class="character-info">
+                            <h3 class="character-title">{{item.name}}</h3>
+                            <div class="character-details">
+                                <span class="status-badge" [class]="'status-' + item.status.toLowerCase()">
+                                    {{item.status}}
+                                </span>
+                                <span class="species-text">{{item.species}}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    } @else {
+        <div class="empty-state">
+            <h2>No hay personajes</h2>
+            <p>No se encontraron personajes para mostrar.</p>
+        </div>
+    }
+</div>
