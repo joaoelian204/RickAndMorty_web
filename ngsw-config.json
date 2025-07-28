@@ -13,10 +13,6 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js"
-        ],
-        "urls": [
-          "https://rickandmortyapi.com/api/character",
-          "https://rickandmortyapi.com/api/character/**"
         ]
       }
     },
